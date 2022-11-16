@@ -80,9 +80,9 @@ install() {
     esac
 
     grep -q -- "-----BEGIN ${msgKeyType} PRIVATE KEY-----" ${osshKey} || {
-      ssh-keygen -q -e -p -P "" -N "" -m pem -f ${osshKey} &> /dev/null
-          && dinfo "Converting ${osshKey} to PEM format"
-          || derror "Converting ${osshKey} to PEM format failed"
+      ssh-keygen -q -e -p -P "" -N "" -m pem -f ${osshKey} &> /dev/null \
+      && dinfo "Converting ${osshKey} to PEM format" \
+      || derror "Converting ${osshKey} to PEM format failed"
     }
 
     #convert the keys from openssh to dropbear format
